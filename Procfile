@@ -1,0 +1,1 @@
+worker: python selkiebot.py
