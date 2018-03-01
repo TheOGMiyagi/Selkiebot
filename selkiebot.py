@@ -1,5 +1,7 @@
 import discord
 from random import choice
+import yt
+import time
 
 client = discord.Client()
 
@@ -15,8 +17,13 @@ with open("seal_images.res") as a: seal_image_urls = [b.strip() for b in a.read(
 while '' in seal_image_urls: seal_image_urls.remove('')
 lewdSeal = "https://imgur.com/NNVMNmt"
 
+currentvc = None
+farming = False
+
 @client.event
 async def on_message(message):
+    global currentvc
+    global farming
     # Per the discord.py docs this is to not have the bot respond to itself
     if message.author == client.user:
         return
@@ -43,6 +50,24 @@ async def on_message(message):
     elif message.content.startswith('!yiff'):
         msg = 'yeef'.format(message)
         await client.send_message(message.channel, msg)
+    elif message.content.startswith('!yt'):
+        url = message.content.split()[1]
+        chan = message.author.voice_channel
+        if currentvc is not None: await currentvc.disconnect()
+        ch = await client.join_voice_channel(chan)
+        player = await ch.create_ytdl_player(url)
+        player.start()
+        currentvc = ch
+    elif message.content.startswith('!play'):
+        url = yt.yt_search(message.content[6:])[0]
+        chan = message.author.voice_channel
+        if currentvc is not None: await currentvc.disconnect()
+        ch = await client.join_voice_channel(chan)
+        player = await ch.create_ytdl_player(url)
+        player.start()
+        currentvc = ch
+    elif message.content.startswith('!stop'):
+        await currentvc.disconnect()
 @client.event
 async def on_ready():
     print('Logged in as')
