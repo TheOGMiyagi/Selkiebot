@@ -24,7 +24,7 @@ while '' in sloth_image_urls: sloth_image_urls.remove('')
 possum_image_urls = []
 with open("possum_images.res") as a: possum_image_urls = [b.strip() for b in a.read().split('\n')]
 while '' in possum_image_urls: possum_image_urls.remove('')
-birthdayPoss = "https://imgur.com/NNVMNmt"
+birthdayPoss = "https://imgur.com/IWV9ICR"
 
 currentvc = None
 farming = False
