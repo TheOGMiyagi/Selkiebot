@@ -8,7 +8,7 @@ client = discord.Client()
 with open("security.res") as a: securitytmp = [b.strip() for b in a.read().split('\n')]
 security_settings = {}
 for a in securitytmp:
-    if ':' in a: 
+    if ':' in a:
         b,c = a.split(':')
         security_settings[b] = c
 
@@ -16,6 +16,15 @@ seal_image_urls = []
 with open("seal_images.res") as a: seal_image_urls = [b.strip() for b in a.read().split('\n')]
 while '' in seal_image_urls: seal_image_urls.remove('')
 lewdSeal = "https://imgur.com/NNVMNmt"
+
+sloth_image_urls = []
+with open("sloth_images.res") as a: sloth_image_urls = [b.strip() for b in a.read().split('\n')]
+while '' in sloth_image_urls: sloth_image_urls.remove('')
+
+possum_image_urls = []
+with open("possum_images.res") as a: possum_image_urls = [b.strip() for b in a.read().split('\n')]
+while '' in possum_image_urls: possum_image_urls.remove('')
+birthdayPoss = "https://imgur.com/NNVMNmt"
 
 currentvc = None
 farming = False
@@ -35,7 +44,19 @@ async def on_message(message):
     elif message.content.startswith('!seal'):
         location = choice(seal_image_urls)
         await client.send_message(message.channel, location)
-    #Post that one seal gi
+    #SLOTH IMAGES
+    elif message.content.startswith('!sloth'):
+        location = choice(sloth_image_urls)
+        await client.send_message(message.channel, location)
+    #POSSUM IMAGES
+    elif message.content.startswith('!possum') or message.content.startswith('!opossum'):
+        location = choice(possum_image_urls)
+        await client.send_message(message.channel, location)
+    #Post birthday possum
+    elif message.content.startswith('!birthday'):
+        location = birthdayPoss
+        await client.send_message(message.channel,location)
+    #Post that one seal gif
     elif message.content.startswith('!lewd') or message.content.startswith('!nsfw'):
         location = lewdSeal
         await client.send_message(message.channel,location)
