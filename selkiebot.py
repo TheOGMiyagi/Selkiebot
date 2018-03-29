@@ -89,4 +89,4 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run(KbCbA2mUSTPrS6-sCNHC0VMFY97DkG49)
+client.run(NDI4NzkzMTE5NTMwODExMzky.DZ4hKA.WR76Y4tUo4JBpU6hflQpqalVGMI)
