@@ -5,6 +5,13 @@ import time
 
 client = discord.Client()
 
+with open("security.res") as a: securitytmp = [b.strip() for b in a.read().split('\n')]
+security_settings = {}
+for a in securitytmp:
+    if ':' in a:
+        b,c = a.split(':')
+        security_settings[b] = c
+
 seal_image_urls = []
 with open("seal_images.res") as a: seal_image_urls = [b.strip() for b in a.read().split('\n')]
 while '' in seal_image_urls: seal_image_urls.remove('')
@@ -89,4 +96,4 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run(NDI4NzkzMTE5NTMwODExMzky.DZ4hKA.WR76Y4tUo4JBpU6hflQpqalVGMI)
+client.run(NDI4NzkzMTE5NTMwODExMzky.DZ4n4g.N_MmLCctLyFKZDEcK4wj4T6W8qU)
