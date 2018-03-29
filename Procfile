@@ -1,1 +1,1 @@
-worker: python selkiebot.py
+worker: python sealbot.py
