@@ -1,3 +1,5 @@
+#ignore security file
+security.res
 
 # Windows image file caches
 Thumbs.db

@@ -36,10 +36,6 @@ async def on_message(message):
     # Per the discord.py docs this is to not have the bot respond to itself
     if message.author == client.user:
         return
-    #If the bot sees the command !yo we will respond with our msg string
-    elif message.content.startswith('!yo'):
-        msg = 'Yo {0.author.mention}'.format(message)
-        await client.send_message(message.channel, msg)
     #SEAL IMAGES
     elif message.content.startswith('!seal'):
         location = choice(seal_image_urls)
@@ -60,10 +56,6 @@ async def on_message(message):
     elif message.content.startswith('!lewd') or message.content.startswith('!nsfw'):
         location = lewdSeal
         await client.send_message(message.channel,location)
-    #say "yeah, dude" whenever someone types !8ball
-    elif message.content.startswith('!8ball'):
-        msg = 'Yeah, dude.'.format(message)
-        await client.send_message(message.channel, msg)
     elif message.content.startswith('!dranz'):
         msg = 'Yeah, dude.'.format(message)
         await client.send_message(message.channel, msg)
@@ -71,24 +63,24 @@ async def on_message(message):
     elif message.content.startswith('!yiff'):
         msg = 'yeef'.format(message)
         await client.send_message(message.channel, msg)
-    elif message.content.startswith('!yt'):
-        url = message.content.split()[1]
-        chan = message.author.voice_channel
-        if currentvc is not None: await currentvc.disconnect()
-        ch = await client.join_voice_channel(chan)
-        player = await ch.create_ytdl_player(url)
-        player.start()
-        currentvc = ch
-    elif message.content.startswith('!play'):
-        url = yt.yt_search(message.content[6:])[0]
-        chan = message.author.voice_channel
-        if currentvc is not None: await currentvc.disconnect()
-        ch = await client.join_voice_channel(chan)
-        player = await ch.create_ytdl_player(url)
-        player.start()
-        currentvc = ch
-    elif message.content.startswith('!stop'):
-        await currentvc.disconnect()
+    #elif message.content.startswith('!yt'):
+        #url = message.content.split()[1]
+        #chan = message.author.voice_channel
+        #if currentvc is not None: await currentvc.disconnect()
+        #ch = await client.join_voice_channel(chan)
+        #player = await ch.create_ytdl_player(url)
+        #player.start()
+        #currentvc = ch
+    #elif message.content.startswith('!play'):
+        #url = yt.yt_search(message.content[6:])[0]
+        #chan = message.author.voice_channel
+        #if currentvc is not None: await currentvc.disconnect()
+        #ch = await client.join_voice_channel(chan)
+        #player = await ch.create_ytdl_player(url)
+        #player.start()
+        #currentvc = ch
+    #elif message.content.startswith('!stop'):
+        #await currentvc.disconnect()
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -96,4 +88,4 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run(security_settings['token'])
+client.run(security_settings["token"])
