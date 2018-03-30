@@ -88,4 +88,4 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run(security_settings["token"])
+client.run("NDI4NzkzMTE5NTMwODExMzky.DZ8l0A.3ES-nZ124os4TF4TmpB9-lS9Zfc")
