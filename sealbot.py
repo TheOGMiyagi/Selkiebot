@@ -36,6 +36,10 @@ async def on_message(message):
     # Per the discord.py docs this is to not have the bot respond to itself
     if message.author == client.user:
         return
+    #Help
+elif message.content.startswith('!help'):
+        msg = 'commands: seal, possum, sloth, birthday, lewd, dranz, yiff.'.format(message)
+        await client.send_message(message.channel, msg)
     #SEAL IMAGES
     elif message.content.startswith('!seal'):
         location = choice(seal_image_urls)
@@ -56,6 +60,7 @@ async def on_message(message):
     elif message.content.startswith('!lewd') or message.content.startswith('!nsfw'):
         location = lewdSeal
         await client.send_message(message.channel,location)
+    #you know what this does
     elif message.content.startswith('!dranz'):
         msg = 'Yeah, dude.'.format(message)
         await client.send_message(message.channel, msg)
@@ -88,4 +93,4 @@ async def on_ready():
     print(client.user.id)
     print('------')
 
-client.run("NDI4NzkzMTE5NTMwODExMzky.DZ8l0A.3ES-nZ124os4TF4TmpB9-lS9Zfc")
+client.run(security_settings["token"])
