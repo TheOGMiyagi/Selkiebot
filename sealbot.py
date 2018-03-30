@@ -36,8 +36,8 @@ async def on_message(message):
     # Per the discord.py docs this is to not have the bot respond to itself
     if message.author == client.user:
         return
-    #Help
-elif message.content.startswith('!help'):
+        #Help
+    elif message.content.startswith('!help'):
         msg = 'commands: seal, possum, sloth, birthday, lewd, dranz, yiff.'.format(message)
         await client.send_message(message.channel, msg)
     #SEAL IMAGES
