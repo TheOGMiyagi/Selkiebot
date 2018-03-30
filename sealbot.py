@@ -21,6 +21,10 @@ sloth_image_urls = []
 with open("sloth_images.res") as a: sloth_image_urls = [b.strip() for b in a.read().split('\n')]
 while '' in sloth_image_urls: sloth_image_urls.remove('')
 
+dog_image_urls = []
+with open("dog_images.res") as a: dog_image_urls = [b.strip() for b in a.read().split('\n')]
+while '' in dog_image_urls: dog_image_urls.remove('')
+
 possum_image_urls = []
 with open("possum_images.res") as a: possum_image_urls = [b.strip() for b in a.read().split('\n')]
 while '' in possum_image_urls: possum_image_urls.remove('')
@@ -36,13 +40,17 @@ async def on_message(message):
     # Per the discord.py docs this is to not have the bot respond to itself
     if message.author == client.user:
         return
-        #Help
+    #Help
     elif message.content.startswith('!help'):
-        msg = 'commands: seal, possum, sloth, birthday, lewd, dranz, yiff.'.format(message)
+        msg = 'commands: seal, dog, possum, sloth, birthday, lewd, dranz, yiff.'.format(message)
         await client.send_message(message.channel, msg)
     #SEAL IMAGES
     elif message.content.startswith('!seal'):
         location = choice(seal_image_urls)
+        await client.send_message(message.channel, location)
+    #SEAL IMAGES
+    elif message.content.startswith('!dog') or message.content.startswith('!pup'):
+        location = choice(dog_image_urls)
         await client.send_message(message.channel, location)
     #SLOTH IMAGES
     elif message.content.startswith('!sloth'):
