@@ -42,7 +42,7 @@ async def on_message(message):
         return
     #Help
     elif message.content.startswith('!help'):
-        msg = 'commands: seal, dog, possum, sloth, birthday, lewd, dranz, yiff.'.format(message)
+        msg = '`commands: seal, dog, possum, sloth, birthday, lewd, dranz, yiff.`'.format(message)
         await client.send_message(message.channel, msg)
     #SEAL IMAGES
     elif message.content.startswith('!seal'):
