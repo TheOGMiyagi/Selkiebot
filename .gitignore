@@ -7,6 +7,10 @@ ehthumbs.db
 # Folder config file
 Desktop.ini
 
+# Compiled Cython & Environment Variable Files
+__pycache__/
+*.env
+
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
